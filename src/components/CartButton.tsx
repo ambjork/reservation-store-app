@@ -1,14 +1,19 @@
-import { Button } from '@mui/material';
-import ShoppingBasketTwoToneIcon from '@mui/icons-material/ShoppingBasketTwoTone';
+import { useContext } from 'react';
+import { AppContext } from '../context/AppContext';
+import { FiShoppingCart } from 'react-icons/fi';
+import { CartItem } from '../interfaces/interfaces';
 
 function CartButton() {
+    const { state } = useContext(AppContext);
+
+    const totalAmount = state?.cart.reduce((total: number, item: CartItem) => {
+        return total + item.amount;
+      }, 0);
 
     return (
-        <>
-        <Button>
-            <ShoppingBasketTwoToneIcon />
-        </Button>
-                    </>
+        <button className='cart-btn'>
+              <FiShoppingCart /> <p>{totalAmount >= 1 ? totalAmount : null}</p>
+            </button>
     )
 }
 
