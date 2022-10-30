@@ -3,6 +3,7 @@ import NavBar from './components/NavBar';
 import StorePage from './pages/StorePage'
 import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
+import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<StorePage />} />
+            <Route path="/cart" element={<CheckoutPage />} />
           </Routes>
         </main>
         <footer>
